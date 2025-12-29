@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Telegram Trading</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+
+body{
+  background:#050505;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+
+/* ===== POPUP ===== */
+.popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.8);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:99;
+}
+
+.popup-box{
+  background:#0b0b0b;
+  padding:25px;
+  width:85%;
+  max-width:320px;
+  text-align:center;
+  border-radius:18px;
+  animation:pop .6s ease;
+}
+
+@keyframes pop{
+  from{transform:scale(.7);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+
+.popup h2{font-size:18px;margin-bottom:10px}
+.popup p{font-size:13px;opacity:.8;margin-bottom:15px}
+
+.popup button{
+  background:#00ff88;
+  border:none;
+  padding:12px 20px;
+  border-radius:10px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+/* ===== MAIN BOX ===== */
+.glow-box{
+  position:relative;
+  width:92%;
+  max-width:420px;
+  background:#0b0b0b;
+  color:#fff;
+  padding:32px 22px 30px;
+  border-radius:22px;
+  text-align:center;
+  z-index:1;
+  animation:fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(25px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* BORDER */
+.glow-box::before{
+  content:"";
+  position:absolute;
+  inset:-3px;
+  background:linear-gradient(45deg,red,orange,yellow,lime,cyan,blue,magenta,red);
+  background-size:400%;
+  border-radius:24px;
+  z-index:-1;
+  animation:glow 6s linear infinite;
+}
+
+@keyframes glow{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* LOGO */
+.logo{
+  width:90px;height:90px;
+  margin:-70px auto 12px;
+  border-radius:50%;
+  background:#000;
+  padding:5px;
+  box-shadow:0 0 20px rgba(0,255,150,.6);
+}
+.logo img{width:100%;height:100%;border-radius:50%;object-fit:cover}
+
+h1{font-size:20px;margin-bottom:6px;animation:textFade 1s ease}
+.sub,.points,.how{animation:textFade 1.3s ease}
+
+@keyframes textFade{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+.sub{font-size:13px;opacity:.8}
+.points{margin:16px 0;font-size:14px;line-height:1.6}
+.how{font-size:13px;opacity:.9;margin-bottom:12px}
+
+/* ===== BUTTON ANIMATION ===== */
+.btn{
+  display:block;
+  width:100%;
+  padding:15px 0;
+  background:#00ff88;
+  color:#000;
+  font-weight:600;
+  font-size:15px;
+  border-radius:14px;
+  text-decoration:none;
+  position:relative;
+  overflow:hidden;
+  animation:pulse 1.8s infinite;
+  box-shadow:0 0 25px rgba(0,255,136,.6);
+}
+
+@keyframes pulse{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.04)}
+  100%{transform:scale(1)}
+}
+
+/* SHINE */
+.btn::after{
+  content:"";
+  position:absolute;
+  top:0;left:-100%;
+  width:100%;height:100%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.6),transparent);
+  animation:shine 2.5s infinite;
+}
+
+@keyframes shine{
+  to{left:100%}
+}
+
+.disc{font-size:10px;opacity:.6;margin-top:8px}
+</style>
+</head>
+
+<body>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+  <div class="popup-box">
+    <h2>🔥 Free Trading Channel</h2>
+    <p>Real setups. Proper SL. No fake hype.</p>
+    <button onclick="closePopup()">Continue</button>
+  </div>
+</div>
+
+<div class="glow-box">
+
+  <div class="logo">
+    <img src="logo.png">
+  </div>
+
+  <h1>Daily Safe Trading Calls</h1>
+  <p class="sub">Real trades • Proper SL • No fake hype</p>
+
+  <div class="points">
+    ✔ 2–3 High Probability Trades Daily<br>
+    ✔ Strict Stop Loss & Target<br>
+    ✔ Beginners Can Follow Easily
+  </div>
+
+  <div class="how">
+    1️⃣ Join Telegram<br>
+    2️⃣ Get Live Trade Setups<br>
+    3️⃣ Trade with Discipline
+  </div>
+
+  <a href="https://t.me/yourlink" class="btn">
+    JOIN FREE TELEGRAM
+  </a>
+
+  <p class="disc">Market risk involved. Educational purpose only.</p>
+</div>
+
+<script>
+function closePopup(){
+  document.getElementById("popup").style.display="none";
+}
+</script>
+
+</body>
+</html>
